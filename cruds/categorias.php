@@ -14,8 +14,10 @@ if(isset($_SESSION["apelido"])){
 <body>
     <h1>Categorias</h1>
     
+    <a href="categoria_adicionar.php">Cadastrar</a><br />
+
     <?php 
-        include '/banco.php';
+        include '../banco.php';
         $conn = conectar();
 
         $sql = "SELECT * FROM Categorias";

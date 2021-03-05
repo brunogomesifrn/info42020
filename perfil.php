@@ -14,8 +14,8 @@ if(isset($_SESSION["apelido"])){
 <body>
     <h1>Página de Perfil</h1>
     <p>Bem-vindo <?php echo $_SESSION['apelido']; ?></p>
-    <a href="">Logout</a>
-    <a href="">Categorias</a>
+    <a href="logout.php">Logout</a>
+    <a href="cruds/categorias.php">Categorias</a>
     <a href="">Fornecedor</a>
     <a href="">Produtos</a>
 </body>
@@ -23,6 +23,6 @@ if(isset($_SESSION["apelido"])){
 
 <?php
 }else{
-
+    header('Location: login.html');
 }
 ?>

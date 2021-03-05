@@ -16,7 +16,7 @@ function conectar(){
             die("Erro de Conexão: " . mysqli_connect_error());
       }
 
-      echo "Sucesso na Conexão";
+      //echo "Sucesso na Conexão";
       return $conn;
 
 }
