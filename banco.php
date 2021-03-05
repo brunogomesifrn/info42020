@@ -1,4 +1,8 @@
+
+
 <?php
+    //https://www.hostinger.com.br/tutoriais/como-inserir-dados-no-mysql-com-php
+
     $servername = "localhost";
     $database = "teste";
     $username = "teste";

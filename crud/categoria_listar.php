@@ -7,10 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Página Inicial</h1>
-    <a href="login.html">Login</a>
-
-
-    <!-- Lista de Produtos -->
+    <h1>Categorias</h1>
+    
 </body>
 </html>
