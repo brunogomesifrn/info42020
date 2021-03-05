@@ -2,7 +2,7 @@ CREATE TABLE Usuario (
 id INT AUTO_INCREMENT PRIMARY KEY,
 nome VARCHAR(100) NOT NULL,
 apelido VARCHAR(30) NOT NULL,
-usuario VARCHAR(30) NOT NULL,
+usuario VARCHAR(30) NOT NULL UNIQUE,
 senha VARCHAR(20)
 );
 
@@ -23,10 +23,14 @@ id_fornecedores int,
 FOREIGN KEY (id_fornecedores) REFERENCES Fornecedores(id)
 );
 
-CREATE TABLE Categorias_Produtos (
+CREATE TABLE Produtos_Categorias (
 id INT AUTO_INCREMENT PRIMARY KEY,
-id_categorias int NOT NULL,
 id_produtos int NOT NULL,
-FOREIGN KEY (id_categorias) REFERENCES Fornecedores(id),
-FOREIGN KEY (id_produtos) REFERENCES Produtos(id)
+id_categorias int NOT NULL,
+FOREIGN KEY (id_produtos) REFERENCES Produtos(id),
+FOREIGN KEY (id_categorias) REFERENCES Categorias(id)
 );
+
+
+INSERT INTO Usuario (nome, apelido, usuario, senha) VALUES
+('Administrador', 'Admin', 'admin', '123');

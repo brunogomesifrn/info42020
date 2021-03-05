@@ -1,7 +1,8 @@
 <?php
 session_start();
-if(isset($_SESSION["usuario"]))
+if(isset($_SESSION["apelido"])){
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +13,16 @@ if(isset($_SESSION["usuario"]))
 </head>
 <body>
     <h1>Página de Perfil</h1>
+    <p>Bem-vindo <?php echo $_SESSION['apelido']; ?></p>
     <a href="">Logout</a>
     <a href="">Categorias</a>
     <a href="">Fornecedor</a>
     <a href="">Produtos</a>
 </body>
 </html>
+
+<?php
+}else{
+
+}
+?>
