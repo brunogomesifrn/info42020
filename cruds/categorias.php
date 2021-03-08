@@ -14,7 +14,7 @@ if(isset($_SESSION["apelido"])){
 <body>
     <h1>Categorias</h1>
     
-    <a href="categoria_adicionar.php">Cadastrar</a><br />
+    <p><a href="categoria_adicionar.php">Cadastrar</a></p>
 
     <?php 
         include '../banco.php';

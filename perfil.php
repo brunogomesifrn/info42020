@@ -14,10 +14,10 @@ if(isset($_SESSION["apelido"])){
 <body>
     <h1>Página de Perfil</h1>
     <p>Bem-vindo <?php echo $_SESSION['apelido']; ?></p>
-    <a href="logout.php">Logout</a>
-    <a href="cruds/categorias.php">Categorias</a>
-    <a href="cruds/fornecedores.php">Fornecedores</a>
-    <a href="cruds/produtos.php">Produtos</a>
+    <p><a href="cruds/categorias.php">Categorias</a></p>
+    <p><a href="cruds/fornecedores.php">Fornecedores</a></p>
+    <p><a href="cruds/produtos.php">Produtos</a></p>
+    <p><a href="logout.php">Logout</a></p>
 </body>
 </html>
 

@@ -10,6 +10,8 @@
     <h1>Página Inicial</h1>
     <a href="login.html">Login</a>
 
+    <h2>Produtos Cadastrados:</h2>
+    
 
     <!-- Lista de Produtos -->
 </body>

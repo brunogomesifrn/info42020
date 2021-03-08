@@ -4,22 +4,27 @@ if(isset($_SESSION["apelido"])){
 
         $id = $_POST["id"];
         $nome = $_POST["nome"];
+        $categorias = $_POST["categorias"];
+        $fornecedor = $_POST["fornecedor"];
         
         include '../banco.php';
         $conn = conectar();
 
-        $sql = "UPDATE Categorias SET nome='$nome' WHERE id=$id";
+        //Atualizar Produto
+        $sql = "UPDATE Produtos SET nome='$nome', id_fornecedores=$fornecedor WHERE id=$id";
         $result = mysqli_query($conn, $sql);
 
-        if ($result) {
-            desconectar($conn);
-            header('Location: categorias.php');
+        // Remover categorias do produto em questão
+        $sql = "DELETE FROM Produtos_Categorias WHERE id_produtos=$id";
+        $result = mysqli_query($conn, $sql);
 
-        } else {
-            //echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-            desconectar($conn);
-            header('Location: categorias.php');
+        // Recuperar todos as categorias selecionadas e adicionar
+        foreach ($categorias as $cat){
+            $sql = "INSERT INTO Produtos_Categorias (id_produtos, id_categorias) VALUES ($id, $cat)";
+            $result = mysqli_query($conn, $sql);
         }
+        desconectar($conn);
+        header('Location: produtos.php');
 }else{
     header('Location: login.html');
 }
