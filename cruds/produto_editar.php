@@ -1,8 +1,3 @@
-<?php
-session_start();
-if(isset($_SESSION["apelido"])){
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,37 +7,33 @@ if(isset($_SESSION["apelido"])){
     <title>Document</title>
 </head>
 <body>
-    <h1>Categorias</h1>
-    
-    <a href="categoria_adicionar.php">Cadastrar</a><br />
 
-    <?php 
+<?php 
+        $id = $_GET["id"];
+        
         include '../banco.php';
         $conn = conectar();
 
-        $sql = "SELECT * FROM Categorias order by nome";
+        $sql = "SELECT * FROM Categorias where id=$id";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_assoc($result)) {
-                echo $row["nome"]." | <a href='categoria_editar.php?id=".$row["id"]."'>Editar</a> | <a href='bd_remover_categoria.php?id=".$row["id"]."'>Apagar</a>";
-                echo "<br />";
+                $nome = $row["nome"];
             }
             desconectar($conn);
 
         } else {
             desconectar($conn);
-            echo "Nenhuma categoria cadastrada";
+            echo "Erro";
         }
     ?>
 
-        <p><a href="../perfil.php"><< Voltar</a>
+    <h1>Cadastrar Categoria</h1>
+    <form action="bd_atualizar_categoria.php" method="post">
+    <p><label>Digite o nome:<input type="text" name="nome" value="<?php echo $nome; ?>"></label></p>
+    <input name="id" type="hidden" value="<?php echo $id; ?>">
+    <p><input type="submit" value="Atualizar"></p>
+    </form>
 </body>
 </html>
-
-
-<?php
-}else{
-    header('Location: login.html');
-}
-?>

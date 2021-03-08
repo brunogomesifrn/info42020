@@ -16,8 +16,8 @@ if(isset($_SESSION["apelido"])){
     <p>Bem-vindo <?php echo $_SESSION['apelido']; ?></p>
     <a href="logout.php">Logout</a>
     <a href="cruds/categorias.php">Categorias</a>
-    <a href="">Fornecedor</a>
-    <a href="">Produtos</a>
+    <a href="cruds/fornecedores.php">Fornecedores</a>
+    <a href="cruds/produtos.php">Produtos</a>
 </body>
 </html>
 

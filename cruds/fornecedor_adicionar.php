@@ -7,8 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Cadastrar Categoria</h1>
-    <form action="bd_registro_categoria.php" method="post">
+    <h1>Cadastrar Fornecedor</h1>
+    <form action="bd_registro_fornecedor.php" method="post">
     <p><label>Digite o nome:<input type="text" name="nome"></label></p>
     <p><input type="submit" value="Atualizar"></p>
     </form>

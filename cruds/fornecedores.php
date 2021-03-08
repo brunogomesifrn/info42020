@@ -12,29 +12,31 @@ if(isset($_SESSION["apelido"])){
     <title>Document</title>
 </head>
 <body>
-    <h1>Categorias</h1>
+    <h1>Fornecedores</h1>
     
+    <a href="fornecedor_adicionar.php">Cadastrar</a><br />
+
     <?php 
-        include '/banco.php';
+        include '../banco.php';
         $conn = conectar();
 
-        $sql = "SELECT * FROM Categorias";
+        $sql = "SELECT * FROM Fornecedores order by nome";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
-        while($row = mysqli_fetch_assoc($result)) {
-            echo $row["nome"];
-            echo "<br />";
-        }
-        desconectar($conn);
+            while($row = mysqli_fetch_assoc($result)) {
+                echo $row["nome"]." | <a href='fornecedor_editar.php?id=".$row["id"]."'>Editar</a> | <a href='bd_remover_fornecedor.php?id=".$row["id"]."'>Apagar</a>";
+                echo "<br />";
+            }
+            desconectar($conn);
 
         } else {
             desconectar($conn);
-            echo "Nenhuma categoria cadastrada";
+            echo "Nenhum fornecedor cadastrado";
         }
     ?>
 
-
+        <p><a href="../perfil.php"><< Voltar</a>
 </body>
 </html>
 

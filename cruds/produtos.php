@@ -14,25 +14,25 @@ if(isset($_SESSION["apelido"])){
 <body>
     <h1>Categorias</h1>
     
-    <a href="categoria_adicionar.php">Cadastrar</a><br />
+    <a href="produto_adicionar.php">Cadastrar</a><br />
 
     <?php 
         include '../banco.php';
         $conn = conectar();
 
-        $sql = "SELECT * FROM Categorias order by nome";
+        $sql = "SELECT * FROM Produtos order by nome";
         $result = mysqli_query($conn, $sql);
 
         if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_assoc($result)) {
-                echo $row["nome"]." | <a href='categoria_editar.php?id=".$row["id"]."'>Editar</a> | <a href='bd_remover_categoria.php?id=".$row["id"]."'>Apagar</a>";
+                echo $row["nome"]." | <a href='produto_editar.php?id=".$row["id"]."'>Editar</a> | <a href='bd_remover_produto.php?id=".$row["id"]."'>Apagar</a>";
                 echo "<br />";
             }
             desconectar($conn);
 
         } else {
             desconectar($conn);
-            echo "Nenhuma categoria cadastrada";
+            echo "Nenhum produto cadastrado";
         }
     ?>
 
