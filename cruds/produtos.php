@@ -12,7 +12,7 @@ if(isset($_SESSION["apelido"])){
     <title>Document</title>
 </head>
 <body>
-    <h1>Categorias</h1>
+    <h1>Produtos</h1>
     
     <p><a href="produto_adicionar.php">Cadastrar</a></p>
 

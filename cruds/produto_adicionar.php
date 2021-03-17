@@ -9,9 +9,15 @@
 <body>
 
     <h1>Cadastrar Produto</h1>
-    <form action="bd_registro_produto.php" method="post">
+    <form action="bd_registro_produto.php" method="post" enctype="multipart/form-data">
     <p><label>Digite o nome:<input type="text" name="nome"></label></p>
+    
+    <p><label>Data de Fabricação:<input type="date" name="data_fabricacao"></label></p>
+
+    <p><label>Selecione uma imagem:<input type="file" name="imagem_produto"></label></p>
+
     <p><label>Selecione as Categorias:<br />
+
     <?php
             include '../banco.php';
             $conn = conectar();

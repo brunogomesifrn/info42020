@@ -3,12 +3,13 @@ include 'banco.php';
 session_start();
 
 $usuario = $_POST["usuario"];
-$senha = $_POST["senha"];
+$senha = md5($_POST["senha"]);
 
 // Conectar ao banco e verificar
 $conn = conectar();
 
 $sql = "SELECT * FROM Usuario WHERE usuario='$usuario' AND senha='$senha'";
+
 $result = mysqli_query($conn, $sql);
 
 // Se retornar um resultado, o usuário será autenticado (ele existe no banco de dados)

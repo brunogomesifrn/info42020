@@ -34,3 +34,16 @@ FOREIGN KEY (id_categorias) REFERENCES Categorias(id)
 
 INSERT INTO Usuario (nome, apelido, usuario, senha) VALUES
 ('Administrador', 'Admin', 'admin', '123');
+
+ALTER TABLE Usuario MODIFY COLUMN senha CHAR(32);
+
+ALTER TABLE Produtos ADD imagem VARCHAR(500) DEFAULT 'sem_imagem.png';
+ALTER TABLE Produtos ADD data_fabricacao DATE;
+ALTER TABLE Produtos ADD data_registro DATETIME;
+
+
+
+
+
+
+

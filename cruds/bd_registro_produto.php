@@ -5,11 +5,25 @@ if(isset($_SESSION["apelido"])){
         $nome = $_POST["nome"];
         $categorias = $_POST["categorias"];
         $fornecedor = $_POST["fornecedor"];
+        $data_fabricacao = $_POST["data_fabricacao"];
         
+        $nome_imagem = 'sem_imagem.png';
+        // verifica se foi enviado um arquivo
+        if (isset($_FILES["imagem_produto"]) && !empty($_FILES["imagem_produto"]["name"]) ) {
+
+            $imagem_temp = $_FILES['imagem_produto']['tmp_name'];
+            $destino = '../imagens/' . $_FILES['imagem_produto']['name'];
+            move_uploaded_file( $imagem_temp, $destino );
+            $nome_imagem = $_FILES['imagem_produto']['name'];
+
+        }else{
+            $nome_imagem = 'sem_imagem.png';
+        }
+
         include '../banco.php';
         $conn = conectar();
 
-        $sql = "INSERT INTO Produtos (nome, id_fornecedores) VALUES ('$nome', $fornecedor)";
+        $sql = "INSERT INTO Produtos (nome, id_fornecedores, imagem, data_fabricacao, data_registro) VALUES ('$nome', $fornecedor, '$nome_imagem', '$data_fabricacao', NOW())";
         $result = mysqli_query($conn, $sql);
         $id_produto = mysqli_insert_id($conn);
 

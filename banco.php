@@ -1,5 +1,3 @@
-
-
 <?php
 
 function conectar(){
@@ -9,8 +7,19 @@ function conectar(){
       $database = "teste";
       $username = "teste";
       $password = "teste";
-      // Create connection
+
+      $servername2 = "localhost";
+      $database2 = "teste2";
+      $username2 = "teste2";
+      $password2 = "teste2";
+
       $conn = mysqli_connect($servername, $username, $password, $database);
+      //$conn = mysqli_connect($servername2, $username2, $password2, $database2);
+
+
+
+
+      
       // Check connection
       if (!$conn) {
             die("Erro de Conexão: " . mysqli_connect_error());
