@@ -28,10 +28,8 @@
                 while($row = mysqli_fetch_assoc($result)) {
                     echo "<input type='checkbox' name='categorias[]' value='".$row["id"]."'>".$row["nome"]."<br />";
                 }
-                desconectar($conn);
                 
             } else {
-                desconectar($conn);
                 echo "Erro";
             }
     ?></label></p>
@@ -39,7 +37,6 @@
 
 <p><label>Selecione o Fornecedor:<br />
     <?php
-            $conn = conectar();
             $sql = "SELECT * FROM Fornecedores order by nome";
             $result = mysqli_query($conn, $sql);
     
@@ -47,11 +44,14 @@
                 while($row = mysqli_fetch_assoc($result)) {
                     echo "<input type='radio' name='fornecedor' value='".$row["id"]."'>".$row["nome"]."<br />";
                 }
+                
     
             } else {
-                desconectar($conn);
+                
                 echo "erro";
             }
+
+            desconectar($conn);
     ?></label></p>
     
 
